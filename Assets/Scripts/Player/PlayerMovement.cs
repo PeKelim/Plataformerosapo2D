@@ -6,39 +6,49 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
+    public float groundCheckRadius = 0.2f;
 
-    float raycastDistance = 0.2f;
+    private Rigidbody2D rb2D;
     private Transform playerPosition;
+    private bool grounded;
 
-    public bool grounded;
-
-    Rigidbody2D rb2D;
     private void Start()
     {
-        playerPosition = GetComponent<Transform>();
         rb2D = GetComponent<Rigidbody2D>();
+        playerPosition = GetComponent<Transform>();
     }
+
     private void Update()
     {
-        IsGrounded();
-
         {
             float horizontalMovement = Input.GetAxis("Horizontal");
             rb2D.velocity = new Vector2(horizontalMovement * speed, rb2D.velocity.y);
-        } // Horizontal Movement
 
+            RotateTowardsMovementDirection(horizontalMovement);
+        } // Movement
         {
+            IsGrounded();
             if (Input.GetButtonDown("Jump") && grounded)
             {
                 rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
             }
-        } // Jump
+        } // Jump action
     }
-    void IsGrounded()
+    private void IsGrounded()
     {
-        int layerMask = 1 << 7;
-
-        RaycastHit2D hit = Physics2D.Raycast(playerPosition.position, Vector2.down, raycastDistance, layerMask);
-        grounded = hit.collider != null;
-    } // Verify if the player is grounded
+        int layerMask = 1 << 7; // Only checks layer 7
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition.position, groundCheckRadius, layerMask);
+        grounded = colliders.Length > 0;
+    } // Checks if the player is on land
+    private void RotateTowardsMovementDirection(float horizontalMovement)
+    {
+        if (horizontalMovement < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (horizontalMovement > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    } // Rotate player toward movement direction
 }
