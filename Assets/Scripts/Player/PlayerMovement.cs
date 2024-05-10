@@ -6,22 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
-    public float groundCheckRadius = 0.2f;
+    float groundCheckRadius = 0.1f;
 
     private Rigidbody2D rb2D;
-    private Transform playerPosition;
     private bool grounded;
 
+    [SerializeField] GameObject foot;
+
+    public bool isJumping;
+    public float horizontalMovement;
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        playerPosition = GetComponent<Transform>();
     }
 
     private void Update()
     {
         {
-            float horizontalMovement = Input.GetAxis("Horizontal");
+            horizontalMovement = Input.GetAxis("Horizontal");
             rb2D.velocity = new Vector2(horizontalMovement * speed, rb2D.velocity.y);
 
             RotateTowardsMovementDirection(horizontalMovement);
@@ -37,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
     private void IsGrounded()
     {
         int layerMask = 1 << 7; // Only checks layer 7
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerPosition.position, groundCheckRadius, layerMask);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(foot.transform.position, groundCheckRadius, layerMask);
         grounded = colliders.Length > 0;
+        isJumping = !grounded;
     } // Checks if the player is on land
     private void RotateTowardsMovementDirection(float horizontalMovement)
     {
