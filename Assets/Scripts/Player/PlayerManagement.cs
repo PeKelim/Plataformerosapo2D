@@ -7,16 +7,15 @@ public class PlayerManagement : MonoBehaviour
     PlayerMovement movement;
     PlayerAnimations animations;
 
-    public bool isDamaged;
     private void Start()
     {
         movement = GetComponent<PlayerMovement>();
         animations = GetComponent<PlayerAnimations>();
+        movement.enabled = true;
     }
     public void TakeDamage()
     {
         animations.Damage();
-        isDamaged = true;
         movement.enabled = false;
     }
 }

@@ -11,13 +11,16 @@ public class PlayerActions : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap"))
+        if (collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemy"))
         {
             management.TakeDamage();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         
+        if (collision.gameObject.TryGetComponent(out Collectable collectable))
+        {
+            collectable.Collect();
+        }
     }
 }
