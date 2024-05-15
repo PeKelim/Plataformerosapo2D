@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -22,5 +24,14 @@ public class PlayerActions : MonoBehaviour
         {
             collectable.Collect();
         }
+        if (collision.gameObject.CompareTag("End"))
+        {
+            NextScene();
+        }
+    }
+    public void NextScene()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex + 1);
     }
 }
