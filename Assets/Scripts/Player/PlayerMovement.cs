@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jumpForce = 5f;
-    float groundCheckRadius = 0.1f;
+    float speed = 2f;
+    float jumpForce = 4f;
+    float groundCheckRadius = 0.06f;
 
     private Rigidbody2D rb2D;
     private bool grounded;
