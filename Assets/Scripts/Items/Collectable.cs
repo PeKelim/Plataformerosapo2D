@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public abstract class Collectable : MonoBehaviour
 {
     Animator animator;
-    private void Start()
+    void Start()
     {
         animator = GetComponent<Animator>();
     }

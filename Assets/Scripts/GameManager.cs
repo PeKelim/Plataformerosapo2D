@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject end;
+    public int objectCounter;
+    private void Start()
     {
-        
+        LookForCollectables();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        LookForCollectables();
+    }
+    public void LookForCollectables()
+    {
+        GameObject[] objectCount = GameObject.FindGameObjectsWithTag("Collectible");
+        objectCounter = objectCount.Length;
+        if (objectCounter == 0)
+        {
+            EnableFinish();
+        }
+    }
+    void EnableFinish()
+    {
+        end.SetActive(true);
     }
 }
