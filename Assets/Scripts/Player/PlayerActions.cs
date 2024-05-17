@@ -20,10 +20,6 @@ public class PlayerActions : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Collectable collectable))
-        {
-            collectable.Collect();
-        }
         if (collision.gameObject.CompareTag("End"))
         {
             NextScene();

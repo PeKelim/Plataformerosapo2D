@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Kiwi : Collectable
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Collect();
+        AddSpeed();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void AddSpeed()
     {
-        
+        // Esta función añadirá velocidad de movimiento
     }
 }
