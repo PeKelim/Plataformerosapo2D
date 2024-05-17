@@ -42,6 +42,7 @@ public class PlayerAnimations : MonoBehaviour
     {
             animator.SetTrigger("isDamaged");
     }
+
     public void DisableSprite()
     {
         sprite.enabled = false;

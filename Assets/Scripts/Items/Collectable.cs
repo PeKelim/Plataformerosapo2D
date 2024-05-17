@@ -9,7 +9,7 @@ public abstract class Collectable : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    public void Collect()
+    protected void Collect()
     {
         animator.SetTrigger("Collected");
     }
