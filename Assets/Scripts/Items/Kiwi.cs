@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Kiwi : Collectable
 {
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Collect();
-    //    AddSpeed();
-    //}
-    private void AddSpeed()
+    public override void PowerUpAction()
     {
-        // Esta función añadirá velocidad de movimiento
+        throw new System.NotImplementedException();
     }
 }

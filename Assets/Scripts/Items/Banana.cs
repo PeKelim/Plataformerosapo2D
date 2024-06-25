@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Banana : Collectable
 {
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Collect();
-    //    AddJump();
-    //}
-    void AddJump()
+    public override void PowerUpAction()
     {
-        // Esta función añadirá fuerza de salto
+        throw new System.NotImplementedException();
     }
 }

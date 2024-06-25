@@ -9,12 +9,21 @@ public abstract class Collectable : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Collect();
+        }
+    }
     protected void Collect()
     {
         animator.SetTrigger("Collected");
+        PowerUpAction();
     }
     public void Dissapear()
     {
         Destroy(gameObject);
     }
+    public abstract void PowerUpAction();
 }
