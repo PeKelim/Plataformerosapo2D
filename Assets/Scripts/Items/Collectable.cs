@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Collectable : MonoBehaviour
 {
+    public int score;
     Animator animator;
+
+    public static event Action<int> collectableEvent;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -13,8 +17,9 @@ public abstract class Collectable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
             Collect();
-        }
+       }
     }
     protected void Collect()
     {
@@ -23,6 +28,7 @@ public abstract class Collectable : MonoBehaviour
     }
     public void Dissapear()
     {
+        collectableEvent?.Invoke(score);
         Destroy(gameObject);
     }
     public abstract void PowerUpAction();

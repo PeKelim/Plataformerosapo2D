@@ -10,6 +10,7 @@ public class PlayerAnimations : MonoBehaviour
     Animator animator;
     SpriteRenderer sprite;
 
+    bool alive = true;
     private void Start()
     {
         management = GetComponent<PlayerManagement>();
@@ -21,7 +22,10 @@ public class PlayerAnimations : MonoBehaviour
     private void Update()
     {
         Running();
-        Jumping();
+        if (alive)
+        {
+            Jumping();
+        }
     }
     public void Running()
     {
@@ -40,7 +44,9 @@ public class PlayerAnimations : MonoBehaviour
     }
     public void Damage()
     {
-            animator.SetTrigger("isDamaged");
+        alive = false;
+        animator.SetBool("isJumping", alive);
+        animator.SetTrigger("isDamaged");
     }
 
     public void DisableSprite()
