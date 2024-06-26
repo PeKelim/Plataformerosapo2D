@@ -6,6 +6,6 @@ public class Banana : Collectable
 {
     public override void PowerUpAction()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

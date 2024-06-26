@@ -38,11 +38,4 @@ public class StoneEnemy : Enemy
             gameObject.tag = "Enemy";
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerWeapon"))
-        {
-            LoseLife(1f);
-        }
-    }
 }

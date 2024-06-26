@@ -17,13 +17,7 @@ public class SpikeEnemy : Enemy
     {
         rb.velocity = direction * speed;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerWeapon"))
-        {
-            LoseLife(1f);
-        }
-    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 7)
