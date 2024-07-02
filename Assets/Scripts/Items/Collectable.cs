@@ -17,18 +17,17 @@ public abstract class Collectable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
             Collect();
-       }
+        }
     }
     protected void Collect()
     {
+        collectableEvent?.Invoke(score);
         animator.SetTrigger("Collected");
         PowerUpAction();
     }
     public void Dissapear()
     {
-        collectableEvent?.Invoke(score);
         Destroy(gameObject);
     }
     public abstract void PowerUpAction();
