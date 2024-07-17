@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 8379767254335740718}
   - component: {fileID: -4021045899129504787}
   - component: {fileID: 2533454796499087631}
-  - component: {fileID: -4644706521428719336}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -84,6 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ce99f3fcfd49943a7dff7490c19cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  jumpForce: 4
   foot: {fileID: 3948255952753349678}
   isJumping: 0
   horizontalMovement: 0
@@ -268,16 +269,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fcafe72aebd844fa6f6e177ab2a452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4644706521428719336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4467147016005407871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7646ea9270c68534db499dc1ff1f91f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 3137283459630851363, guid: c77bf5cf3d87e6b4eacdcd17971e61b2, type: 3}

@@ -9,7 +9,6 @@ TagManager:
   - Collectible
   - Trap
   - End
-  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

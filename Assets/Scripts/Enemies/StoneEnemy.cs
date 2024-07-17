@@ -35,11 +35,7 @@ public class StoneEnemy : Enemy
     {
         if (hasFallen && collision.gameObject.CompareTag("Terrain"))
         {
-            gameObject.tag = "Terrain";
-        }
-        if (collision.gameObject.CompareTag("PlayerWeapon"))
-        {
-            LoseLife(1f);
+            gameObject.tag = "Enemy";
         }
     }
 }

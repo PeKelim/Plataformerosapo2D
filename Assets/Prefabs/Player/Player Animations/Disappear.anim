@@ -89,6 +89,13 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5833333
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
     functionName: RestartScene
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 4ce0dad50172b2d47b50211b0dc9228b, type: 3}

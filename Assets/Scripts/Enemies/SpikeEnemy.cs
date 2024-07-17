@@ -24,9 +24,5 @@ public class SpikeEnemy : Enemy
         {
             direction = -direction;
         }
-        if (collision.gameObject.CompareTag("PlayerWeapon"))
-        {
-            LoseLife(1f);
-        }
     }
 }
