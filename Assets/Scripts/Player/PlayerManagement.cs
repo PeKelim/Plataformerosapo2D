@@ -16,10 +16,13 @@ public class PlayerManagement : MonoBehaviour
         movement.enabled = true;
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
+
     public void TakeDamage()
     {
+        HUD.Instance.AddDeathCount();
         animations.Damage();
         movement.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
+        HUD.Instance.DeductScorePercentage(0.6f);
     }
 }
