@@ -9,13 +9,9 @@ public abstract class Enemy : MonoBehaviour
     protected void LoseLife(float damage)
     {
         life -= damage;
-
-    } // Función para que el enemigo reciba daño
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerWeapon"))
+        if (life <= 0)
         {
-            LoseLife(1f);
+            Destroy(gameObject);
         }
-    }
+    } // Función para que el enemigo reciba daño
 }
